@@ -1,0 +1,116 @@
+/* Кольори й розміри (змінюйте тут) */
+:root {
+  --teal: #0f8b8d;          /* синьо-зелений для шапки і футера */
+  --background: #ffffff;    /* чисто білий фон */
+  --card: #7bb5b6;          /* трохи темніший за фон */
+  --text: #141414;
+  --gap: 8px;               /* відстань між табличками (5–10px) */
+  --edge-gap: 25px;         /* відступ від шапки й футера (20–30px) */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+/* Титулка зверху */
+.header {
+  background: var(--teal);
+  color: #ffffff;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Основна частина: таблички займають увесь вільний простір */
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--edge-gap) 16px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.card {
+  flex: 1;                  /* кожна табличка росте рівномірно */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--card);
+  padding: 24px;
+  border-radius: 6px;
+}
+
+/* Друга табличка: картинка зліва */
+.card-reverse {
+  flex-direction: row-reverse;
+}
+
+.card-text {
+  flex: 1;
+}
+
+.card h2 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.card p {
+  margin: 0;
+}
+
+.card img {
+  width: 35%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Footer знизу */
+.footer {
+  background: var(--teal);
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* На вузьких екранах картинка йде під текстом */
+@media (max-width: 600px) {
+  .card,
+  .card-reverse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: none;
+  }
+}
